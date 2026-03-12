@@ -4,6 +4,8 @@ class Program
 {
     static void Main()
     {
+        Console.WriteLine("Enter 2 numbers and an operation sign (ex. 4 5 +)");
+        Console.WriteLine("Supported operations: + - / *");
         while (true)
         {
             try
