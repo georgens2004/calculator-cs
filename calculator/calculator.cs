@@ -10,12 +10,28 @@ class Program
         {
             try
             {
-                string[] parts = Console.ReadLine().Split(' ');
-                
-                double num1 = Convert.ToDouble(parts[0]);
-                double num2 = Convert.ToDouble(parts[1]);
+                string input = Console.ReadLine();
+                if (string.IsNullOrWhiteSpace(input))
+                {
+                    Console.WriteLine("Empty input");
+                    continue;
+                }
+
+                string[] parts = input.Split(' ');
+                if (parts.Length != 3)
+                {
+                    Console.WriteLine("Invalid format. Use: number number operator");
+                    continue;
+                }
+
+                if (!double.TryParse(parts[0], out double num1) ||
+                    !double.TryParse(parts[1], out double num2))
+                {
+                    Console.WriteLine("Invalid numbers");
+                    continue;
+                }
+
                 string op = parts[2];
-                
                 double result = 0;
                 
                 if (op == "+") result = num1 + num2;
